@@ -1,3 +1,4 @@
+#! https://zhuanlan.zhihu.com/p/917374254
 # Numeric & Optimize Method
 
 ## equation
@@ -39,11 +40,13 @@ $$
 ## program
 ### linear
 [wiki](https://en.wikipedia.org/wiki/Linear_programming)
-
-standard form:
 $$
 \min_{x} cx\\
 s.t.\ Ax\le b,x\ge 0
 $$
 - simplex algorithm
   - [wiki](https://en.wikipedia.org/wiki/Simplex_algorithm)
+- criss-cross algorithm
+  - [wiki](https://en.wikipedia.org/wiki/Criss-cross_algorithm)
+### Quadralic
+[wiki](https://en.wikipedia.org/wiki/Quadratic_programming)

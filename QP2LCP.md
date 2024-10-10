@@ -1,3 +1,4 @@
+#! https://zhuanlan.zhihu.com/p/917374280
 # solve QP by solve LCP iteratively
 $$
 \text{minimize} f(x)\ \text{s.t.}\ h(x)\ge 0\\
