@@ -1,5 +1,5 @@
 #! https://zhuanlan.zhihu.com/p/917374254
-# Numeric & Optimize Method
+# Numeric and Optimize Method
 
 ## equation
 ### linear
@@ -37,7 +37,7 @@ $$
 - projected gauss–seidel method
   - [知乎](https://zhuanlan.zhihu.com/p/381900297)
 - sequencial impulse
-## program
+## programming
 ### linear
 [wiki](https://en.wikipedia.org/wiki/Linear_programming)
 $$
@@ -48,5 +48,5 @@ $$
   - [wiki](https://en.wikipedia.org/wiki/Simplex_algorithm)
 - criss-cross algorithm
   - [wiki](https://en.wikipedia.org/wiki/Criss-cross_algorithm)
-### Quadralic
+### quadratic
 [wiki](https://en.wikipedia.org/wiki/Quadratic_programming)
