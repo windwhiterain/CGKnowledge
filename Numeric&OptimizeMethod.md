@@ -30,5 +30,20 @@ $$
 (Ax+b>0)_i,x_i={x_l}_i;\\
 (Ax+b<0)_i,x_i={x_h}_i
 $$
+- Lemke's algorithm
+  - [wiki](https://en.wikipedia.org/wiki/Lemke%27s_algorithm)
+  - [GPU Gems](https://developer.nvidia.com/gpugems/gpugems3/part-v-physics-simulation/chapter-33-lcp-algorithms-collision-detection-using-cuda)
 - projected gauss–seidel method
   - [知乎](https://zhuanlan.zhihu.com/p/381900297)
+- sequencial impulse
+## program
+### linear
+[wiki](https://en.wikipedia.org/wiki/Linear_programming)
+
+standard form:
+$$
+\min_{x} cx\\
+s.t.\ Ax\le b,x\ge 0
+$$
+- simplex algorithm
+  - [wiki](https://en.wikipedia.org/wiki/Simplex_algorithm)
