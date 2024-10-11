@@ -49,4 +49,6 @@ $$
 - criss-cross algorithm
   - [wiki](https://en.wikipedia.org/wiki/Criss-cross_algorithm)
 ### quadratic
+convex:
+
 [wiki](https://en.wikipedia.org/wiki/Quadratic_programming)
