@@ -1,3 +1,4 @@
+#! https://zhuanlan.zhihu.com/p/978332000
 # Locally Intersection Free Belt Generation
 ## Problem
 given a curve and some attributes defined on it, generate a belt based on it.
