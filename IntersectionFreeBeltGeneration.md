@@ -44,7 +44,7 @@ D^*_{k+1}(x)=D^*_k(x)\bigoplus\frac{\bigtriangleup d}{2}(\delta(x_1,x)-\delta(x_
 $$
 - $\delta(x_i,x)=max(0,1- \lambda^{-1}|L(x)-L(x_i)|)$
   - $\lambda= \frac{|L(x_1)-L(x_{2})|}{2}$
-  - $D(x)\bigoplus d=D(x)+d+\theta a,da=0,||D(x)\bigoplus d||_2=1$
+- $D(x)\bigoplus d=D(x)+d+\theta a,da=0,||D(x)\bigoplus d||_2=1$
 
 choose $\lambda$ from large to small to hierarchically accelerate the iteration 
 
