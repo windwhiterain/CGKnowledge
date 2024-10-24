@@ -1,3 +1,4 @@
+#! https://zhuanlan.zhihu.com/p/3003539332
 <!--
  * @author: whitingyan
  * @LastEditors: whitingyan
@@ -5,7 +6,7 @@
  * @Date: 2024-10-22 20:59:28
  * @LastEditTime: 2024-10-24 22:26:06
 -->
-# 知乎的恶心东西备忘录
+# UE的恶心东西备忘录
 - 不要再c++ Spawn一个Blueprint Object后立即Call它的BlueprintImplementable,此时这个函数还没加载完成，什么都不会发生。
 - Dynamically add Component之后一定要Actor AddInstanceComponent，否则Component过一会儿会被清理
 - qeury/collision 就改两个东西
