@@ -9,6 +9,7 @@ $$
 - conjugate gradient method
   - [wiki](https://en.wikipedia.org/wiki/Conjugate_gradient_method)
 - fixed-point iteration
+  - [wiki](https://en.wikipedia.org/wiki/Fixed-point_iteration)
   - _
     1. gauss–seidel method
        - [wiki](https://en.wikipedia.org/wiki/Gauss%E2%80%93Seidel_method)
