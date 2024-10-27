@@ -28,7 +28,7 @@ $
 - $C_s=mat(0,0,0,1)$
 or more compact:
 $
-I(x_i)_s=A_s^(i times i+i+1)(x^2_(i times i) plus.circle x_i plus.circle 1)=A_s^i' text("poly")(x,2)_i' 
+I(x_i)_s=A_s^(i times i+i+1)(x^2_(i times i) plus.circle x_i plus.circle 1)=A_s^i' text("polynomial")(2,x)_i' 
 $
 - $A=mat(0,1/2,1/2,0,0,0,0;0,-1/2,-1/2,0,1,0,0;0,-1/2,-1/2,0,0,1,0;0,1/2,1/2,0,-1,-1,1)$
 == Inverse Interpolation
@@ -54,5 +54,12 @@ the derivative:
 $
 (partial f'(x_i))/(partial x_i)=I_i-(A'_i^j x^i+B'_i^j)^(-1) A'_j^i (A'_i^j x^i+B'_i^j)^(-1)C'_j
 $
-this is called modified-newton method.
+this is a kind of modified-newton method which has better convergency.I think its about the multiplicity of the root changed from $1$ to $-1$ after the modification.
+
+reference:
+- #link("https://www.sciencedirect.com/science/article/pii/S0024379511004484")[
+  Quadratic vector equations \
+  Federico Polon \
+  2010
+]
 

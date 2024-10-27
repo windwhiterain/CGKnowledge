@@ -45,6 +45,10 @@ $$
 - projected gauss–seidel method
   - [知乎](https://zhuanlan.zhihu.com/p/381900297)
 - sequencial impulse
+## least squares problem
+[wiki](https://en.wikipedia.org/wiki/Least_squares)
+### linear
+[wiki](https://en.wikipedia.org/wiki/Linear_least_squares)
 ## programming
 ### linear
 [wiki](https://en.wikipedia.org/wiki/Linear_programming)
