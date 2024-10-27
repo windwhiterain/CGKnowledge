@@ -26,7 +26,14 @@
 == Rational B-Spline
 reference:
 - #link("https://www.cl.cam.ac.uk/teaching/2000/AGraphHCI/SMEG/node5.html")[
-Advanced Graphics and HCI \ Neil Dodgson \ 2000-09-25
+    Advanced Graphics and HCI \ Neil Dodgson \ 2000
+]
+== Simplex Spline
+reference:
+- #link("https://ris.utwente.nl/ws/files/7048277/Auerbach91approx.pdf")[
+    Approximation and geometric modeling 
+    with simplex B-splines associated 
+    with irregular triangles \ S. Auerbach & R.H.J. Gmelig Meyling & M. Neamtu & H. Schaeben \ 1989
 ]
 == Box Spline
 reference:
@@ -34,5 +41,5 @@ reference:
 == P-Spline
 reference:
 - #link("https://psplines.bitbucket.io/Support/WhyPsplines.pdf")[
-WhyP-splines? \ Paul Eilers & Brian Marx \ June 7, 2021
+    WhyP-splines? \ Paul Eilers & Brian Marx \ 2021
 ]
