@@ -1,3 +1,7 @@
+<!--
+ * @author: whitingyan
+ * @LastEditors: whitingyan
+-->
 #! https://zhuanlan.zhihu.com/p/917374254
 # Numeric and Optimize Method
 
@@ -17,6 +21,9 @@ $$
        - [wiki](https://en.wikipedia.org/wiki/Successive_over-relaxation)
   - jacobi method
     - [wiki](https://en.wikipedia.org/wiki/Jacobi_method)
+### quadratic
+- fixed-point iteration
+- newton method
 ## complementarity problem
 [wiki](https://en.wikipedia.org/wiki/Complementarity_theory)
 ### linear

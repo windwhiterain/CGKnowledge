@@ -10,7 +10,7 @@
 = Interpolation
 ]
 - let $w_s$ be the interpolation weight on sample $s$.
-- let $I(x_i)_s=w_s$ be the interpolation method
+- let $text("interpolate")(x_i)_s=w_s$ be the interpolation method
 - let $y(x_i)_j=Y_j^s w_s$ be the interpolated value
 #set heading(numbering: "1.")
 = Bilinear 
@@ -34,16 +34,25 @@ $
 == Inverse Interpolation
 write the equation as:
 $
-y_j=Y_j^s I(x_i)_s=Y_j^s A_s^(i i)x_i x_i+Y_j^s B_s^i x_i+Y_j^s C_s
+y_j=Y_j^s text("interpolate")(x_i)_s=Y_j^s A_s^(i i)x_i x_i+Y_j^s B_s^i x_i+Y_j^s C_s
 $
 let:
 $
-y_j=A'_j^(i i)x_i x_i+B'_j^i x_i+C'_j
+f(x_i)_j=A'_j^(i i)x_i x_i+B'_j^i x_i+C'_j=0
 $
 the derivative:
 $
-(partial y(x_i)_j)/(partial x_i)=2A'_j^(i i)x_i+B'_j^i \
-(partial^2 y(x_i)_j)/(partial x_i)^2=2A'_j^(i i)
+(partial f(x_i)_j)/(partial x_i)=2A'_j^(i i)x_i+B'_j^i
 $
 then we can solve $x_i$ by newton method.
+
+we can also write it as:
+$
+f'(x_i)_i=x_i+(A'_j^i x_i+B'_j^i)^(-1)C'_j=0
+$
+the derivative:
+$
+(partial f'(x_i))/(partial x_i)=I_i-(A'_i^j x^i+B'_i^j)^(-1) A'_j^i (A'_i^j x^i+B'_i^j)^(-1)C'_j
+$
+this is called modified-newton method.
 
