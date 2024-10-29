@@ -1,3 +1,7 @@
+<!--
+ * @author: whitingyan
+ * @LastEditors: whitingyan
+-->
 #! https://zhuanlan.zhihu.com/p/917374254
 # Numeric and Optimize Method
 
@@ -9,6 +13,7 @@ $$
 - conjugate gradient method
   - [wiki](https://en.wikipedia.org/wiki/Conjugate_gradient_method)
 - fixed-point iteration
+  - [wiki](https://en.wikipedia.org/wiki/Fixed-point_iteration)
   - _
     1. gauss–seidel method
        - [wiki](https://en.wikipedia.org/wiki/Gauss%E2%80%93Seidel_method)
@@ -16,6 +21,9 @@ $$
        - [wiki](https://en.wikipedia.org/wiki/Successive_over-relaxation)
   - jacobi method
     - [wiki](https://en.wikipedia.org/wiki/Jacobi_method)
+### quadratic
+- fixed-point iteration
+- newton method
 ## complementarity problem
 [wiki](https://en.wikipedia.org/wiki/Complementarity_theory)
 ### linear
@@ -37,6 +45,10 @@ $$
 - projected gauss–seidel method
   - [知乎](https://zhuanlan.zhihu.com/p/381900297)
 - sequencial impulse
+## least squares problem
+[wiki](https://en.wikipedia.org/wiki/Least_squares)
+### linear
+[wiki](https://en.wikipedia.org/wiki/Linear_least_squares)
 ## programming
 ### linear
 [wiki](https://en.wikipedia.org/wiki/Linear_programming)
