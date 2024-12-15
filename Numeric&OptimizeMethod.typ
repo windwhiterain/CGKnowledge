@@ -86,10 +86,11 @@ feature:
 = Equaltion
 == Linear
 formulation:
-$ A bold(x) + bold(b) = 0 $
+$ A bold(x) + bold(b) = 0 $<eq.l>
 transform:\
 if $"rank"(A) < bold(b)$
 $ A^top A bold(x) + A^top bold(b) = 0 $
+$ A' bold(x) + bold(b') = 0 \ ->#ref(<eq.l>) $
 === Conjugate Gradient
 reference:
 - #link("https://en.wikipedia.org/wiki/Conjugate_gradient_method")[wiki]
@@ -97,8 +98,20 @@ reference:
 = Optimization
 == Quadral
 formulation:
-$ min_x || A bold(x) - bold(b) ||_2 $<opt.q>
-=== Newton
+$ min_bold(x) bold(x)^top A bold(x) + bold(b) bold(x) $<opt.q>
+or
+$ min_bold(x) || A bold(x) + bold(b) ||_2 $<opt.q.v1>
+transform:
+$ A bold(x) + bold(b) = 0 \ ->#ref(<eq.l>) $
+or
+$ 2 A^top (A bold(x) + bold(b)) = 0 $
+$ A^top A bold(x) + A^top bold(b) = 0 $
+$ A' bold(x) + bold(b') = 0 \ ->#ref(<eq.l>)  $
+== Continuous
+formulation:
+$ min_bold(x) f(bold(x)),\ gradient_bold(x) f(bold(x)_k) = bold(g), gradient^2_bold(x) f(bold(x)_k) = H $
+transform:
+$ f(bold(x))_k = bold(x)^top H bold(x)_k + bold(g) bold(x)_k, \ min_bold(x)_(k+1) f(bold(x))_k \ ->#ref(<opt.q.v1>) $
 === Quasi-Newton
 reference:
 - #link("https://en.wikipedia.org/wiki/Quasi-Newton_method")[wiki]
@@ -112,25 +125,28 @@ reference:
 reference:
 - #link("https://en.wikipedia.org/wiki/Compact_quasi-Newton_representation")[wiki]
 = Constraint
-== Single Linear Equal
+== Linear Equality
 formulation:
-$ bold(x) = N bold(lambda),\ "rank"(N) < "rank"(bold(x))  $ <cst.sl>
+$ bold(x) = N bold(lambda),\ "rank"(N) < "rank"(bold(x))  $ <cst.l>
 === Qualdral Optimization (Linear Least Squares)
 reference:
 - #link("https://en.wikipedia.org/wiki/Linear_least_squares")[wiki]
 transform:
-$ #ref(<opt.q>),#ref(<cst.sl>) =>\ min_bold(lambda) || A N bold(lambda) - bold(b) ||_2 $
-$ min_bold(bold(x')) || A' bold(x') - bold(b) ||_2 $
-$ 2 A^top (A' bold(x') - bold(b)) = 0 $
+$ #ref(<opt.q>),#ref(<cst.l>) =>\ min_bold(lambda) || A N bold(lambda) - bold(b) ||_2 $
+$ min_bold(bold(x')) || A' bold(x') - bold(b) ||_2 \ ->#ref(<opt.q>) $
 === Rank $n - 1$ 
 formulation:
-$ bold(n)bold(x) + m = 0 $ <cst.sl.rn1>
+$ bold(n)bold(x) + m = 0 $ <cst.l.rn1>
 ==== Qualdral Optimization
 transform:
-$ #ref(<opt.q>),#ref(<cst.sl.rn1>) =>\ lambda bold(n) + 2 A^top (A bold(x) - bold(b)) = 0 $
-$ lambda bold(n) + 2 A^top A bold(x) - 2 A^top bold(b) = 0 $<cst.sl.rn1.m1>
-$ #ref(<cst.sl.rn1>),#ref(<cst.sl.rn1.m1>) <=>\ "diag"(2 A^top A,bold(n))(bold(x) plus.circle lambda) - 2 A^top bold(b) = 0 $
-$ A' bold(x') + bold(b') = 0 $
+$ #ref(<opt.q>),#ref(<cst.l.rn1>) =>\ lambda bold(n) + 2 A bold(x) + bold(b) = 0 $<cst.l.rn1.m1>
+$ #ref(<cst.l.rn1>),#ref(<cst.l.rn1.m1>) <=>\ mat(2 A, bold(n); bold(n), 0)vec(bold(x), lambda) + vec(bold(b), m) = 0 $
+$ A' bold(x') + bold(b') = 0 \ ->#ref(<eq.l>) $
+== Linear Inequality
+formulation:
+$ A bold(x) >= bold(b) $
+
+
 
 
 

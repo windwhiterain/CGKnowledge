@@ -1,7 +1,3 @@
-<!--
- * @author: whitingyan
- * @LastEditors: whitingyan
--->
 #! https://zhuanlan.zhihu.com/p/917374254
 # Numeric and Optimize Method
 
