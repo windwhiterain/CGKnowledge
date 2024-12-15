@@ -127,24 +127,20 @@ reference:
 = Constraint
 == Linear Equality
 formulation:
-$ bold(x) = N bold(lambda),\ "rank"(N) < "rank"(bold(x))  $ <cst.l>
+$ N bold(x) + bold(m) = 0,\ "rank"(N^top) < dim(bold(x)) $<cst.l>
+or
+$ bold(x) = N bold(lambda),\ "rank"(N) < dim(bold(x))  $ <cst.l.v1>
 === Qualdral Optimization (Linear Least Squares)
 reference:
 - #link("https://en.wikipedia.org/wiki/Linear_least_squares")[wiki]
 transform:
-$ #ref(<opt.q>),#ref(<cst.l>) =>\ min_bold(lambda) || A N bold(lambda) - bold(b) ||_2 $
-$ min_bold(bold(x')) || A' bold(x') - bold(b) ||_2 \ ->#ref(<opt.q>) $
-=== Rank $n - 1$ 
-formulation:
-$ bold(n)bold(x) + m = 0 $ <cst.l.rn1>
-==== Qualdral Optimization
-transform:
-$ #ref(<opt.q>),#ref(<cst.l.rn1>) =>\ lambda bold(n) + 2 A bold(x) + bold(b) = 0 $<cst.l.rn1.m1>
-$ #ref(<cst.l.rn1>),#ref(<cst.l.rn1.m1>) <=>\ mat(2 A, bold(n); bold(n), 0)vec(bold(x), lambda) + vec(bold(b), m) = 0 $
+$ #ref(<opt.q>),#ref(<cst.l>) =>\ N bold(lambda) + 2 A bold(x) + bold(b) = 0 $<cst.l.m1>
+$ #ref(<cst.l>),#ref(<cst.l.m1>) <=>\ mat(2 A, N; N, 0)vec(bold(x), bold(lambda)) + vec(bold(b), bold(m)) = 0 $
 $ A' bold(x') + bold(b') = 0 \ ->#ref(<eq.l>) $
-== Linear Inequality
-formulation:
-$ A bold(x) >= bold(b) $
+or
+$ #ref(<opt.q.v1>),#ref(<cst.l.v1>) =>\ min_bold(lambda) || A N bold(lambda) - bold(b) ||_2 $
+$ min_bold(bold(x')) || A' bold(x') - bold(b) ||_2 \ ->#ref(<opt.q>) $
+
 
 
 
