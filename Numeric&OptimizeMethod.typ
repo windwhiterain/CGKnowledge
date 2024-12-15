@@ -112,21 +112,25 @@ reference:
 reference:
 - #link("https://en.wikipedia.org/wiki/Compact_quasi-Newton_representation")[wiki]
 = Constraint
-== Rank n-1 Single Linear
+== Single Linear Equal
 formulation:
-$ bold(n)bold(x) + m = 0 $ <cst.r1sl>
-or
-$ bold(x) = N bold(lambda),\ "rank"(N) = "rank"(bold(x)) - 1 $ <cst.r1sl.v1>
+$ bold(x) = N bold(lambda),\ "rank"(N) < "rank"(bold(x))  $ <cst.sl>
 === Qualdral Optimization (Linear Least Squares)
 reference:
 - #link("https://en.wikipedia.org/wiki/Linear_least_squares")[wiki]
 transform:
-$ #ref(<opt.q>),#ref(<cst.r1sl>) =>\ lambda bold(n) + 2(A bold(x) - bold(b)) = 0 $
-$ lambda bold(n) + A bold(x) - bold(b) = 0 $<cst.r1sl.m1>
-$ #ref(<cst.r1sl>),#ref(<cst.r1sl.m1>) <=>\ (A plus.circle bold(n))(bold(x) plus.circle lambda) - bold(b) = 0 $
-$ A' bold(x') + bold(b) = 0 $
-or
-$ #ref(<opt.q>),#ref(<cst.r1sl.v1>) =>\ min_bold(lambda) || A N bold(lambda) - bold(b) ||_2 $
+$ #ref(<opt.q>),#ref(<cst.sl>) =>\ min_bold(lambda) || A N bold(lambda) - bold(b) ||_2 $
 $ min_bold(bold(x')) || A' bold(x') - bold(b) ||_2 $
-$ A' bold(x') = bold(b) $
+$ 2 A^top (A' bold(x') - bold(b)) = 0 $
+=== Rank $n - 1$ 
+formulation:
+$ bold(n)bold(x) + m = 0 $ <cst.sl.rn1>
+==== Qualdral Optimization
+transform:
+$ #ref(<opt.q>),#ref(<cst.sl.rn1>) =>\ lambda bold(n) + 2 A^top (A bold(x) - bold(b)) = 0 $
+$ lambda bold(n) + 2 A^top A bold(x) - 2 A^top bold(b) = 0 $<cst.sl.rn1.m1>
+$ #ref(<cst.sl.rn1>),#ref(<cst.sl.rn1.m1>) <=>\ "diag"(2 A^top A,bold(n))(bold(x) plus.circle lambda) - 2 A^top bold(b) = 0 $
+$ A' bold(x') + bold(b') = 0 $
+
+
 
