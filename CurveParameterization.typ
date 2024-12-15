@@ -12,10 +12,13 @@
 #set heading(numbering: "1.")
 = Tutte's Embedding
 - to convex
+- preserve only topology
 - linear system
 feature:
 - foldover-free: theoretical gurarantee
 - usually high distortion
+reference:
+- #link("https://en.wikipedia.org/wiki/Tutte_embedding")[wiki]
 == Euclidean-orbifold
 == Hyperbolic-orbifold
 == Spherical-orbifold
