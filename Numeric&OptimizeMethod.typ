@@ -96,6 +96,8 @@ reference:
 - #link("https://en.wikipedia.org/wiki/Conjugate_gradient_method")[wiki]
 - #link("https://optimization.cbe.cornell.edu/index.php?title=Conjugate_gradient_methods")[cornell.edu]
 = Optimization
+formulation:
+$ min_x f(x) $<opt>
 == Quadral
 formulation:
 $ min_bold(x) bold(x)^top A bold(x) + bold(b) bold(x) $<opt.q>
@@ -110,6 +112,7 @@ $ A' bold(x) + bold(b') = 0 \ ->#ref(<eq.l>)  $
 == Continuous
 formulation:
 $ min_bold(x) f(bold(x)),\ gradient_bold(x) f(bold(x)_k) = bold(g), gradient^2_bold(x) f(bold(x)_k) = H $
+=== Newton
 transform:
 $ f(bold(x))_k = bold(x)^top H bold(x)_k + bold(g) bold(x)_k, \ min_bold(x)_(k+1) f(bold(x))_k \ ->#ref(<opt.q.v1>) $
 === Quasi-Newton
@@ -140,9 +143,16 @@ $ A' bold(x') + bold(b') = 0 \ ->#ref(<eq.l>) $
 or
 $ #ref(<opt.q.v1>),#ref(<cst.l.v1>) =>\ min_bold(lambda) || A N bold(lambda) - bold(b) ||_2 $
 $ min_bold(bold(x')) || A' bold(x') - bold(b) ||_2 \ ->#ref(<opt.q>) $
-
-
-
+== Linear InEquality
+formulation
+$ N bold(x) + bold(m) >= 0 $
+=== Interior Point (Barrier)
+reference:
+- #link("https://en.wikipedia.org/wiki/Interior-point_method")[wiki]
+==== Path Following 
+transform:
+$ min_x_k t_(k) f(x_k) + b(x_k)\ -> #ref(<opt>) $
+==== Potential Reduction
 
 
 
