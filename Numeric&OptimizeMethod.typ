@@ -3,7 +3,7 @@
   margin: (x: 1cm, y: 1cm),
 )
 #set text(
-  font: "LXGW WenKai Mono Screen",
+  //font: "LXGW WenKai Mono Screen",
   size: 10pt
 )
 #set math.equation(numbering: "<1>")
@@ -21,7 +21,7 @@
     it
   }
 }
-#show math.equation: set text(font: "Fira Math")
+//#show math.equation: set text(font: "Fira Math")
 
 #align(center)[
 = Numeric and Optimize Method
@@ -95,6 +95,12 @@ $ A' bold(x) + bold(b') = 0 \ ->#ref(<eq.l>) $
 reference:
 - #link("https://en.wikipedia.org/wiki/Conjugate_gradient_method")[wiki]
 - #link("https://optimization.cbe.cornell.edu/index.php?title=Conjugate_gradient_methods")[cornell.edu]
+== Continuous
+formulation:
+$ bold(f)(bold(x)) + bold(b) = 0 $<eq.c>
+=== Newton
+transform:
+$ gradient_bold(x)_k bold(f)(bold(x)_k)(bold(x)_(k+1)-bold(x)_k) + bold(f)(bold(x)_k) + b = 0\ -> #ref(<eq.l>) $
 = Optimization
 formulation:
 $ min_x f(x) $<opt>
@@ -128,31 +134,54 @@ reference:
 reference:
 - #link("https://en.wikipedia.org/wiki/Compact_quasi-Newton_representation")[wiki]
 = Constraint
-== Linear Equality
+== Equality
 formulation:
-$ N bold(x) + bold(m) = 0,\ "rank"(N^top) < dim(bold(x)) $<cst.l>
+$ bold(n)bold(x) = 0 $
+kkt:
+$ gradient_bold(x)f(bold(x)) + gradient_bold(x)bold(n)(bold(x))bold(lambda) = 0,\ bold(n)(bold(x)) = 0  $<cst.e.kkt>
+=== Linear Equality
+formulation:
+$ N bold(x) + bold(m) = 0,\ "rank"(N^top) < dim(bold(x)) $<cst.e.l>
 or
-$ bold(x) = N bold(lambda),\ "rank"(N) < dim(bold(x))  $ <cst.l.v1>
-=== Qualdral Optimization (Linear Least Squares)
+$ bold(x) = N bold(lambda),\ "rank"(N) < dim(bold(x))  $ <cst.e.l.v1>
+==== Qualdral Optimization (Linear Least Squares)
 reference:
 - #link("https://en.wikipedia.org/wiki/Linear_least_squares")[wiki]
 transform:
-$ #ref(<opt.q>),#ref(<cst.l>) =>\ N bold(lambda) + 2 A bold(x) + bold(b) = 0 $<cst.l.m1>
-$ #ref(<cst.l>),#ref(<cst.l.m1>) <=>\ mat(2 A, N; N, 0)vec(bold(x), bold(lambda)) + vec(bold(b), bold(m)) = 0 $
+$ #ref(<opt.q>),#ref(<cst.e.l>),#ref(<cst.e.kkt>) =>\ N bold(lambda) + 2 A bold(x) + bold(b) = 0 $<cst.e.l.m1>
+$ #ref(<cst.e.l>),#ref(<cst.e.l.m1>) <=>\ mat(2 A, N; N, 0)vec(bold(x), bold(lambda)) + vec(bold(b), bold(m)) = 0 $
 $ A' bold(x') + bold(b') = 0 \ ->#ref(<eq.l>) $
 or
-$ #ref(<opt.q.v1>),#ref(<cst.l.v1>) =>\ min_bold(lambda) || A N bold(lambda) - bold(b) ||_2 $
+$ #ref(<opt.q.v1>),#ref(<cst.e.l.v1>) =>\ min_bold(lambda) || A N bold(lambda) - bold(b) ||_2 $
 $ min_bold(bold(x')) || A' bold(x') - bold(b) ||_2 \ ->#ref(<opt.q>) $
-== Linear InEquality
-formulation
-$ N bold(x) + bold(m) >= 0 $
+== InEquality
+formulation:
+$ bold(n)(bold(x)) >= 0 $<cst.ie>
+kkt:
+$ gradient_bold(x)f(bold(x)) + gradient_bold(x)bold(n)(bold(x))bold(lambda) = 0,\ bold(lambda) bold(n)(bold(x)) = 0,\ bold(lambda) >= 0 $<cst.ie.kkt>
 === Interior Point (Barrier)
 reference:
 - #link("https://en.wikipedia.org/wiki/Interior-point_method")[wiki]
 ==== Path Following 
 transform:
-$ min_x_k t_(k) f(x_k) + b(x_k)\ -> #ref(<opt>) $
-==== Potential Reduction
+$ min_(bold(x)_t_k=bold(x)) f(bold(x)) + t_k bold(n')(bold(x)), t_(k+1) = theta t_k\ -> #ref(<opt>) $<cst.ie.itp.pf>
+==== Primal Dual
+reference:
+- #link("https://www.cs.cmu.edu/~pradeepr/convexopt/Lecture_Slides/primal-dual.pdf")[cmu.edu]
+compare:
+- little slower than Path Following but more accurate.
+transform:
+$ #ref(<cst.ie.itp.pf>),\ n'(bold(x)) := || -bold(log)(bold(n)(bold(x))) ||_1 $
+$ min_(bold(x)_t_k=bold(x)) f(bold(x)) + t_k || -bold(log)(bold(n)(bold(x))) ||_1,\ bold(lambda) dot.circle bold(n)(x) = t_k bold(1) $<cst.ie.itp.pd.m1>
+$ #ref(<cst.ie.itp.pd.m1>) =>\ gradient_bold(x) f(bold(x)) + t_k gradient_bold(x) bold(n)(bold(x))(-bold(n)(bold(x))^(circle -bold(1))) = 0 $
+$ gradient_bold(x) f(bold(x)) + t_k gradient_bold(x) bold(n)(bold(x))(-t_k^(-1) bold(lambda)) = 0 $
+$ gradient_bold(x) f(bold(x)) - gradient_bold(x) bold(n)(bold(x))bold(lambda) = 0 $<cst.ie.itp.pd.m2>
+$ #ref(<cst.ie.itp.pd.m2>),#ref(<cst.ie.itp.pd.m1>) =>\ gradient_bold(x) f(bold(x)) - gradient_bold(x) bold(n)(bold(x))bold(lambda) = 0,\ bold(lambda) dot.circle bold(n)(x) = t_k bold(1)\ -> #ref(<eq.c>) $
+or
+$ #ref(<cst.ie.kkt>)->\ bold(x)_k := bold(x),\ gradient_bold(x)f(bold(x)) + gradient_bold(x)bold(n)(bold(x))bold(lambda) = 0,\ bold(lambda) bold(n)(bold(x)) = t_k,\ t_(k+1) = theta t_k\ -> #ref(<eq.c>) $
+=== Linear InEquality
+formulation:
+$ N bold(x) + bold(m) >= 0 $
 
 
 
